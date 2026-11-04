@@ -21,3 +21,4 @@ No hace falta para decisiones pequeñas (nombres, estilos, detalles locales).
 | ADR | Título | Estado |
 | --- | ------ | ------ |
 | [0001](./0001-usar-angular-standalone.md) | Usar Angular standalone con Vitest | Aceptado |
+| [0002](./0002-i18n-servicio-propio-con-signals.md) | i18n con servicio propio y signals | Aceptado |

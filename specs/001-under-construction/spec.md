@@ -1,6 +1,6 @@
 # Spec: 001-under-construction
 
-**Estado:** Aprobada
+**Estado:** Reemplazada por [002-landing-personal](../002-landing-personal/spec.md)
 **Fecha:** 2026-10-06
 
 ## Resumen

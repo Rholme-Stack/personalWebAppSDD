@@ -1,0 +1,10 @@
+.coming-soon {
+  margin: 0;
+  padding: var(--spacing-60) 0;
+  color: var(--color-ash-gray);
+  font-size: var(--text-nav-label);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-nav-label);
+  text-align: center;
+  text-transform: uppercase;
+}

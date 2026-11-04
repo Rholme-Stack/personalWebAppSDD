@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { Router, provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { App } from './app';
 import { routes } from './app.routes';
@@ -18,15 +18,16 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should show the under construction page at the root URL', async () => {
+  it('should show the landing page at the root URL', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/');
-    expect(harness.fixture.nativeElement.querySelector('app-under-construction')).not.toBeNull();
+    expect(harness.fixture.nativeElement.querySelector('app-landing')).not.toBeNull();
   });
 
-  it('should show the under construction page at any other URL', async () => {
+  it('should redirect any other URL to the landing page', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/cualquier/cosa');
-    expect(harness.fixture.nativeElement.querySelector('app-under-construction')).not.toBeNull();
+    expect(TestBed.inject(Router).url).toBe('/');
+    expect(harness.fixture.nativeElement.querySelector('app-landing')).not.toBeNull();
   });
 });

@@ -1,0 +1,67 @@
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-36);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .card {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: var(--spacing-60);
+  }
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-cards);
+}
+
+.role {
+  margin: 0 0 var(--spacing-12);
+  color: var(--color-electric-iris);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.name {
+  margin: 0 0 var(--spacing-18);
+  font-size: var(--text-heading-xs);
+  line-height: 1;
+}
+
+.bio {
+  margin: 0 0 var(--spacing-24);
+  max-width: 56ch;
+  color: var(--color-silver-mist);
+}
+
+.social {
+  display: flex;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social a {
+  display: inline-flex;
+  padding: var(--spacing-6);
+  border-radius: var(--spacing-6);
+}
+
+.social a:hover img {
+  filter: brightness(1.6);
+}
+
+.social img {
+  width: 24px;
+  height: 24px;
+}

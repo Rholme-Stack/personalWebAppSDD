@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
-import { UnderConstruction } from './under-construction/under-construction';
+import { Landing } from './landing/landing';
 
-export const routes: Routes = [{ path: '**', component: UnderConstruction }];
+export const routes: Routes = [
+  { path: '', component: Landing },
+  { path: '**', redirectTo: '' },
+];

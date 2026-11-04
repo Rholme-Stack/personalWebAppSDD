@@ -1,0 +1,25 @@
+<section id="about" class="section" aria-labelledby="about-title">
+  <h2 id="about-title" class="section-title">{{ t().about.title }}</h2>
+  <div class="card">
+    <img class="photo" [src]="profile.photo" [alt]="t().about.photoAlt" width="480" height="600" />
+    <div class="details">
+      <p class="role">{{ t().role }}</p>
+      <h3 class="name">{{ profile.name }}</h3>
+      <p class="bio">{{ t().about.bio }}</p>
+      <ul class="social">
+        @for (link of profile.socialLinks; track link.network) {
+          <li>
+            <a
+              [href]="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.aria-label]="t().about.socialLabel(link.label)"
+            >
+              <img [src]="link.icon" alt="" width="24" height="24" />
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

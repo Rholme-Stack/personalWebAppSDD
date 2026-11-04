@@ -1,0 +1,21 @@
+<header>
+  <a class="wordmark" routerLink="/">{{ name }}</a>
+
+  <nav>
+    <a routerLink="/" fragment="about">{{ t().nav.about }}</a>
+    <a routerLink="/" fragment="stack">{{ t().nav.stack }}</a>
+  </nav>
+
+  <div class="language">
+    <label class="visually-hidden" for="language-select">{{ t().nav.languageLabel }}</label>
+    <select id="language-select" (change)="onLangChange($event)">
+      @for (option of langs; track option.value) {
+        <option [value]="option.value" [lang]="option.value" [selected]="option.value === lang()">
+          {{ option.label }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <a class="button-primary contact" routerLink="/" fragment="contact">{{ t().nav.contact }}</a>
+</header>

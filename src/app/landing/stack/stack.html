@@ -1,0 +1,11 @@
+<section id="stack" class="section" aria-labelledby="stack-title">
+  <h2 id="stack-title" class="section-title">{{ t().stack.title }}</h2>
+  <ul>
+    @for (item of items; track item.name) {
+      <li>
+        <img [src]="item.logo" alt="" width="48" height="48" />
+        <span>{{ item.name }}</span>
+      </li>
+    }
+  </ul>
+</section>

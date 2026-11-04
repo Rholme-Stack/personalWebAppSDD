@@ -1,0 +1,64 @@
+<section id="contact" class="section" aria-labelledby="contact-title">
+  <h2 id="contact-title" class="section-title">{{ t().contact.title }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    @let nameError = errorFor('name');
+    <div class="field">
+      <label for="contact-name">{{ t().contact.nameLabel }}</label>
+      <input
+        id="contact-name"
+        formControlName="name"
+        type="text"
+        autocomplete="name"
+        [attr.aria-invalid]="nameError ? 'true' : null"
+        [attr.aria-describedby]="nameError ? 'contact-name-error' : null"
+      />
+      @if (nameError) {
+        <p class="error" id="contact-name-error">{{ nameError }}</p>
+      }
+    </div>
+
+    @let emailError = errorFor('email');
+    <div class="field">
+      <label for="contact-email">{{ t().contact.emailLabel }}</label>
+      <input
+        id="contact-email"
+        formControlName="email"
+        type="email"
+        autocomplete="email"
+        [attr.aria-invalid]="emailError ? 'true' : null"
+        [attr.aria-describedby]="emailError ? 'contact-email-error' : null"
+      />
+      @if (emailError) {
+        <p class="error" id="contact-email-error">{{ emailError }}</p>
+      }
+    </div>
+
+    @let messageError = errorFor('message');
+    <div class="field">
+      <label for="contact-message">{{ t().contact.messageLabel }}</label>
+      <textarea
+        id="contact-message"
+        formControlName="message"
+        rows="6"
+        [attr.aria-invalid]="messageError ? 'true' : null"
+        [attr.aria-describedby]="messageError ? 'contact-message-error' : null"
+      ></textarea>
+      @if (messageError) {
+        <p class="error" id="contact-message-error">{{ messageError }}</p>
+      }
+    </div>
+
+    <button type="submit" class="button-primary">{{ t().contact.submit }}</button>
+
+    <div class="notice" role="status">
+      @if (noticeVisible()) {
+        <p>
+          {{ t().contact.notice }}
+          <a [href]="linkedin.url" target="_blank" rel="noopener noreferrer">{{ linkedin.label }}</a
+          >.
+        </p>
+      }
+    </div>
+  </form>
+</section>
