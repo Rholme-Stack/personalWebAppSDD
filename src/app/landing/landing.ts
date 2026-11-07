@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Constellation } from '../constellation/constellation';
 import { ContactForm } from '../contact/contact-form/contact-form';
 import { LanguageService } from '../i18n/language.service';
 import { AboutMe } from './about-me/about-me';
@@ -9,7 +10,7 @@ import { Stack } from './stack/stack';
 
 @Component({
   selector: 'app-landing',
-  imports: [SiteHeader, AboutMe, Stack, Photos, ContactForm],
+  imports: [Constellation, SiteHeader, AboutMe, Stack, Photos, ContactForm],
   styleUrl: './landing.css',
   templateUrl: './landing.html',
 })

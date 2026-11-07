@@ -39,6 +39,11 @@ testem.log
 /typings
 __screenshots__/
 
+# Python tools (tools/bust): local env and intermediate files. Source photos/video never go here.
+tools/bust/.venv/
+tools/bust/work/
+__pycache__/
+
 # System files
 .DS_Store
 Thumbs.db

@@ -54,6 +54,10 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
+## Constellation bust
+
+The 3D particle bust behind the page (feature 003) is drawn from `public/constellation/bust.bin`. That file is generated once, locally, from Rodrigo's photos and video with the Python tools in [`tools/bust/`](tools/bust/README.md), which explains how to regenerate it. The photos and the video are never added to the repository.
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

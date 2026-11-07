@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { DeferBlockBehavior, DeferBlockState, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { LanguageService } from '../i18n/language.service';
 import { Landing } from './landing';
@@ -8,6 +8,7 @@ describe('Landing', () => {
     await TestBed.configureTestingModule({
       imports: [Landing],
       providers: [provideRouter([])],
+      deferBlockBehavior: DeferBlockBehavior.Manual,
     }).compileComponents();
     TestBed.inject(LanguageService).setLang('en');
     const fixture = TestBed.createComponent(Landing);
@@ -37,5 +38,20 @@ describe('Landing', () => {
     for (const selector of ['app-about-me', 'app-stack', 'app-photos', 'app-contact-form']) {
       expect(compiled.querySelector(`main ${selector}`)).not.toBeNull();
     }
+  });
+
+  it('should load the constellation later, in a deferred block outside main', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fixture = await render();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-constellation')).toBeNull();
+
+    const blocks = await fixture.getDeferBlocks();
+    expect(blocks.length).toBe(1);
+    await blocks[0].render(DeferBlockState.Complete);
+
+    expect(compiled.querySelector('app-constellation')).not.toBeNull();
+    expect(compiled.querySelector('main app-constellation')).toBeNull();
+    vi.restoreAllMocks();
   });
 });

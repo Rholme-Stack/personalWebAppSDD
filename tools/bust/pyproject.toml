@@ -1,0 +1,14 @@
+[project]
+name = "bust"
+version = "0.1.0"
+description = "Genera la nube de puntos del busto de la constelación (feature 003) a partir de fotos y vídeo locales."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "mediapipe",
+  "numpy",
+  "opencv-contrib-python",
+  "pycolmap",
+]
+
+[tool.uv]
+package = false

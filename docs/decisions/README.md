@@ -22,3 +22,5 @@ No hace falta para decisiones pequeñas (nombres, estilos, detalles locales).
 | --- | ------ | ------ |
 | [0001](./0001-usar-angular-standalone.md) | Usar Angular standalone con Vitest | Aceptado |
 | [0002](./0002-i18n-servicio-propio-con-signals.md) | i18n con servicio propio y signals | Aceptado |
+| [0003](./0003-constelacion-webgl2-sin-libreria.md) | Constelación con WebGL2, sin librería 3D | Aceptado |
+| [0004](./0004-generar-busto-en-local-con-python.md) | Generar el busto en local con Python | Aceptado |
