@@ -35,6 +35,8 @@ Página principal de la web personal de Rodrigo Holme, que sustituye a la págin
 
 ### HU-3: Contactar con Rodrigo
 
+> **Retirada el 2026-11-22 por la [004-cabecera](../004-cabecera/spec.md) (HU-3):** se quitó la sección de contacto y el botón "Contact" de la cabecera abre LinkedIn en una pestaña nueva. Se conserva aquí como historial.
+
 **Como** visitante **quiero** enviar un mensaje a Rodrigo desde la web **para** contactarle sin buscar su email.
 
 > En esta feature el formulario todavía no envía mensajes: valida los datos y avisa de que aún no está activo. El envío real se hará en una feature posterior.

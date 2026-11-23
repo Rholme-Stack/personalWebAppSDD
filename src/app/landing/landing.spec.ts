@@ -35,9 +35,16 @@ describe('Landing', () => {
   it('should render the header and every section inside main', async () => {
     const compiled = (await render()).nativeElement as HTMLElement;
     expect(compiled.querySelector('app-site-header')).not.toBeNull();
-    for (const selector of ['app-about-me', 'app-stack', 'app-photos', 'app-contact-form']) {
+    for (const selector of ['app-about-me', 'app-stack', 'app-photos']) {
       expect(compiled.querySelector(`main ${selector}`)).not.toBeNull();
     }
+  });
+
+  it('should not have a contact section or form', async () => {
+    const compiled = (await render()).nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-contact-form')).toBeNull();
+    expect(compiled.querySelector('#contact')).toBeNull();
+    expect(compiled.querySelector('form')).toBeNull();
   });
 
   it('should load the constellation later, in a deferred block outside main', async () => {

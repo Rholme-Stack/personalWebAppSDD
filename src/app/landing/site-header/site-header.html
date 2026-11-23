@@ -1,5 +1,8 @@
 <header>
-  <a class="wordmark" routerLink="/">{{ name }}</a>
+  <a class="wordmark" routerLink="/">
+    <img class="logo" src="logo-rh.svg" alt="" width="28" height="28" />
+    {{ name }}
+  </a>
 
   <nav>
     <a routerLink="/" fragment="about">{{ t().nav.about }}</a>
@@ -17,5 +20,13 @@
     </select>
   </div>
 
-  <a class="button-primary contact" routerLink="/" fragment="contact">{{ t().nav.contact }}</a>
+  <a
+    class="button-primary contact"
+    [href]="linkedin.url"
+    target="_blank"
+    rel="noopener noreferrer"
+    [attr.aria-label]="t().nav.contactLabel"
+  >
+    {{ t().nav.contact }}
+  </a>
 </header>

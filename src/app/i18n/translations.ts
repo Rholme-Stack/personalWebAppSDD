@@ -8,7 +8,14 @@ export const LANGS: readonly { value: Lang; label: string }[] = [
 ];
 
 export interface Translations {
-  nav: { about: string; stack: string; contact: string; languageLabel: string };
+  nav: {
+    about: string;
+    stack: string;
+    contact: string;
+    /** Accessible name of the contact button: starts with the visible text (WCAG 2.5.3). */
+    contactLabel: string;
+    languageLabel: string;
+  };
   role: string;
   about: {
     title: string;
@@ -18,24 +25,16 @@ export interface Translations {
   };
   stack: { title: string };
   photos: { title: string; comingSoon: string };
-  contact: {
-    title: string;
-    nameLabel: string;
-    emailLabel: string;
-    messageLabel: string;
-    submit: string;
-    errors: {
-      required: string;
-      email: string;
-      maxLength: (n: number) => string;
-      minLength: (n: number) => string;
-    };
-    notice: string;
-  };
 }
 
 const en: Translations = {
-  nav: { about: 'About Me', stack: 'Stack', contact: 'Contact', languageLabel: 'Language' },
+  nav: {
+    about: 'About Me',
+    stack: 'Stack',
+    contact: 'Contact',
+    contactLabel: 'Contact Rodrigo Holme on LinkedIn (opens in a new tab)',
+    languageLabel: 'Language',
+  },
   role: 'Developer',
   about: {
     title: 'About Me',
@@ -45,24 +44,16 @@ const en: Translations = {
   },
   stack: { title: 'Stack' },
   photos: { title: 'Photos', comingSoon: 'Coming soon' },
-  contact: {
-    title: 'Contact',
-    nameLabel: 'Name',
-    emailLabel: 'Email',
-    messageLabel: 'Message',
-    submit: 'Send',
-    errors: {
-      required: 'This field is required',
-      email: 'Enter a valid email',
-      maxLength: (n) => `Maximum ${n} characters`,
-      minLength: (n) => `Minimum ${n} characters`,
-    },
-    notice: 'The contact form is not active yet. You can reach me on',
-  },
 };
 
 const es: Translations = {
-  nav: { about: 'Sobre mí', stack: 'Stack', contact: 'Contacto', languageLabel: 'Idioma' },
+  nav: {
+    about: 'Sobre mí',
+    stack: 'Stack',
+    contact: 'Contacto',
+    contactLabel: 'Contacto: Rodrigo Holme en LinkedIn (se abre en una pestaña nueva)',
+    languageLabel: 'Idioma',
+  },
   role: 'Desarrollador',
   about: {
     title: 'Sobre mí',
@@ -72,24 +63,16 @@ const es: Translations = {
   },
   stack: { title: 'Stack' },
   photos: { title: 'Fotos', comingSoon: 'Próximamente' },
-  contact: {
-    title: 'Contacto',
-    nameLabel: 'Nombre',
-    emailLabel: 'Correo electrónico',
-    messageLabel: 'Mensaje',
-    submit: 'Enviar',
-    errors: {
-      required: 'Este campo es obligatorio',
-      email: 'Introduce un email válido',
-      maxLength: (n) => `Máximo ${n} caracteres`,
-      minLength: (n) => `Mínimo ${n} caracteres`,
-    },
-    notice: 'El formulario de contacto aún no está activo. Puedes escribirme por',
-  },
 };
 
 const ptBR: Translations = {
-  nav: { about: 'Sobre mim', stack: 'Stack', contact: 'Contato', languageLabel: 'Idioma' },
+  nav: {
+    about: 'Sobre mim',
+    stack: 'Stack',
+    contact: 'Contato',
+    contactLabel: 'Contato: Rodrigo Holme no LinkedIn (abre em uma nova aba)',
+    languageLabel: 'Idioma',
+  },
   role: 'Desenvolvedor',
   about: {
     title: 'Sobre mim',
@@ -99,20 +82,6 @@ const ptBR: Translations = {
   },
   stack: { title: 'Stack' },
   photos: { title: 'Fotos', comingSoon: 'Em breve' },
-  contact: {
-    title: 'Contato',
-    nameLabel: 'Nome',
-    emailLabel: 'E-mail',
-    messageLabel: 'Mensagem',
-    submit: 'Enviar',
-    errors: {
-      required: 'Este campo é obrigatório',
-      email: 'Digite um e-mail válido',
-      maxLength: (n) => `Máximo de ${n} caracteres`,
-      minLength: (n) => `Mínimo de ${n} caracteres`,
-    },
-    notice: 'O formulário de contato ainda não está ativo. Você pode me escrever pelo',
-  },
 };
 
 export const TRANSLATIONS: Record<Lang, Translations> = { en, es, 'pt-BR': ptBR };

@@ -21,9 +21,20 @@ header {
 
 .wordmark {
   grid-area: wordmark;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  justify-self: start;
   font-size: var(--text-nav-label);
   font-weight: var(--font-weight-semibold);
   text-decoration: none;
+}
+
+.logo {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
 }
 
 nav {

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -7 107 107" role="img" aria-labelledby="logo-rh-title">
+  <title id="logo-rh-title">Rodrigo Holme</title>
+  <defs>
+    <!-- Logo Lockup (DESIGN.md): Electric Iris fading to Deep Verdant -->
+    <linearGradient id="logo-rh-gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8052ff"/>
+      <stop offset="1" stop-color="#15846e"/>
+    </linearGradient>
+  </defs>
+  <!-- R and H share the middle stem; the R leg is the H's left foot -->
+  <path fill="url(#logo-rh-gradient)" fill-rule="evenodd" d="M0 0H46L58 12V42H84V0H88L100 12V100H84V58H34L58 100H40L16 58V100H0Z M16 16V42H42V16Z"/>
+  <!-- Mint Signal fragment breaking off the H, like the bust bursting on scroll -->
+  <polygon fill="#4fe3c1" points="95,-7 107,-7 107,5"/>
+</svg>

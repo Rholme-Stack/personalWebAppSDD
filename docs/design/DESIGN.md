@@ -18,7 +18,6 @@ The site operates as a dark-stage environment where black voids meet a single vi
 | Electric Iris | `#8052ff` | `--color-electric-iris` | Primary action buttons, logo mark, brand accents — the single saturated violet that signals interactivity and brand identity against the black void |
 | Mint Signal | `#4fe3c1` | `--color-mint-signal` | Highlight emphasis text, accent links, attention punctuation — bright mint against violet creates the brand's chromatic tension |
 | Deep Verdant | `#15846e` | `--color-deep-verdant` | Secondary surface tint, logo gradient stop — appears as the deeper end of the brand gradient and in subtle accent washes |
-| Coral Alert | `#ff6b6b` | `--color-error` | Form validation errors only (error text and invalid field border). Added for this site — the reference design has no error color. ~7:1 contrast on black |
 
 ## Tokens — Typography
 
@@ -104,7 +103,13 @@ No background, no border, color #ffffff or #9a9a9a. Inter 14px weight 400. Used 
 ### Logo Lockup
 **Role:** Brand mark + wordmark in header
 
-Small triangular icon in #8052ff (violet) with a gradient fade through #15846e (teal), paired with 'Rodrigo Holme' wordmark in white. The icon is a stylized angular fragment — geometric, sharp-edged, echoing the triangular particles in the hero visualization.
+The **RH monogram** (`public/logo-rh.svg`) at 28px, 12px to the left of the 'Rodrigo Holme' wordmark in white (14px Inter weight 600). Logo and wordmark are one link back to the top of the page; the logo is decorative (`alt=""`), so screen readers only hear "Rodrigo Holme".
+
+**The mark:** R and H share the middle stem and the R's leg is the H's left foot, so the pair fits a square. Sharp, geometric strokes (stem ≈ 16% of the height); the R bowl has its top-right corner cut at 45° — the "angular fragment". Filled with a diagonal linear gradient from #8052ff (violet, top-left) to #15846e (teal, bottom-right). The H's top-right corner breaks off as a small #4fe3c1 mint triangle, echoing the bust bursting into particles on scroll. Always on pure black; no outline, shadow or container.
+
+**Favicon:** the same file is the browser-tab icon (SVG), with `favicon.ico` (16, 32 and 48px, generated from the logo on a transparent background) as fallback. It still reads at 16px; the mint fragment becomes a single pixel.
+
+**Discarded variants (2026-11-22):** a faceted version split into triangles and a constellation version with nodes and lines — both stop reading below 48px.
 
 ### About Me Card
 **Role:** Portrait + name + role display
@@ -145,23 +150,18 @@ Two-column asymmetric layout: headline at 78–113px weight 400 Inter in white w
 ### Navigation Bar
 **Role:** Top-aligned site navigation
 
-Transparent background sitting directly on black canvas. Logo left, nav links center/right (About Me, Stack) in 14px uppercase Inter with 0.025em tracking. Active or hover state: white. Inactive: #9a9a9a. Contact button (filled violet pill) anchors the right edge. No border, no backdrop blur on the nav itself.
+Transparent background sitting directly on black canvas. Logo Lockup left (RH monogram + wordmark), nav links center/right (About Me, Stack) in 14px uppercase Inter with 0.025em tracking. Active or hover state: white. Inactive: #9a9a9a. Contact button (filled violet pill) anchors the right edge. No border, no backdrop blur on the nav itself.
+
+**Contact button:** there is no contact section; the button opens Rodrigo's LinkedIn profile in a new tab. Its visible text is translated (Contact / Contacto / Contato) and its accessible name starts with that same word and says it opens LinkedIn in a new tab.
 
 **Language selector:** a native `<select>` placed between the nav links and the Contact button. Same look as the nav links: 14px uppercase Inter weight 600, 0.025em tracking, #9a9a9a text (white on hover/focus), transparent background, 1px #9a9a9a border, 24px radius, 6px 12px padding. Options are always written in their own language (English, Español, Português (Brasil)). Its label ("Language") is visually hidden but available to screen readers.
 
-**Mobile (< 640px):** the bar wraps into two rows — wordmark and language selector on top, nav links and Contact button below. No hamburger menu.
+**Mobile (< 640px):** the bar wraps into two rows — logo, wordmark and language selector on top, nav links and Contact button below. No hamburger menu.
 
 ### Stack List
 **Role:** Technologies Rodrigo works with
 
 Horizontal row (wraps on mobile) of items, each one a 48px monochrome white logo above its name in 18px Inter weight 400, white. 36px gap between items. No cards, no borders — logos float on black like the rest of the page.
-
-### Contact Form
-**Role:** Visitor message form (name, email, message)
-
-Single column, max width 640px. Labels above fields in 14px uppercase Inter weight 600, 0.025em tracking, #9a9a9a. Fields: transparent background, white 18px weight 200 text, 1px #9a9a9a border, 12px radius, 12px 18px padding — the one place the site uses borders, because form fields need a visible boundary to be usable. Focus: 2px #8052ff outline. Invalid: border and error text in `--color-error` (#ff6b6b), error text 14px below the field. Submit: Primary Action Button (violet pill).
-
-**Notice (form not active yet):** text in 18px weight 200 white, left border 2px #4fe3c1 mint, 12px 18px padding, appears below the submit button. The "LinkedIn" link inside is mint and underlined.
 
 ### Photos Section (Coming soon)
 **Role:** Placeholder for the future Instagram photo carousel
@@ -228,7 +228,7 @@ Full-bleed sections on pure black canvas, max content width ~1280px centered. He
 
 2. **Section Headline + Body**: #000000 background. Left-aligned headline at 42px Inter weight 400, #ffffff, letter-spacing -1.68px. Supporting body text at 18px weight 200 Inter, #bdbdbd, max-width 520px. No boxes, no borders, no cards — text floats on void.
 
-3. **Navigation Bar**: Transparent background on black. Left: small violet (#8052ff) triangular logo icon + 'Rodrigo Holme' wordmark in #ffffff 14px. Right: nav links 'About Me', 'Stack' in 14px Inter weight 600, uppercase, 0.025em letter-spacing, color #9a9a9a (inactive) or #ffffff (active). Far right: filled violet pill 'Contact' button — #8052ff background, white text, 22.5px radius, 14px weight 600 uppercase.
+3. **Navigation Bar**: Transparent background on black. Left: 28px RH monogram (violet #8052ff → teal #15846e gradient, mint #4fe3c1 corner fragment) + 'Rodrigo Holme' wordmark in #ffffff 14px, 12px apart. Right: nav links 'About Me', 'Stack' in 14px Inter weight 600, uppercase, 0.025em letter-spacing, color #9a9a9a (inactive) or #ffffff (active). Far right: filled violet pill 'Contact' button that opens LinkedIn in a new tab — #8052ff background, white text, 22.5px radius, 14px weight 600 uppercase.
 
 4. **About Me Card**: No background, no border. Large portrait photo with 24px border-radius. Above name: role label 'DEVELOPER' at 12px Inter weight 400, #8052ff, uppercase. Below photo: name 'Rodrigo Holme' at 27px Inter weight 400, #ffffff. Social icons inline as small glyphs in #9a9a9a.
 
@@ -255,7 +255,6 @@ Full-bleed sections on pure black canvas, max content width ~1280px centered. He
   --color-electric-iris: #8052ff;
   --color-mint-signal: #4fe3c1;
   --color-deep-verdant: #15846e;
-  --color-error: #ff6b6b;
 
   /* Typography — Font Families */
   --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -341,7 +340,6 @@ Full-bleed sections on pure black canvas, max content width ~1280px centered. He
   --color-electric-iris: #8052ff;
   --color-mint-signal: #4fe3c1;
   --color-deep-verdant: #15846e;
-  --color-error: #ff6b6b;
 
   /* Typography */
   --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

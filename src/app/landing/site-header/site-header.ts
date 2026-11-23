@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../i18n/language.service';
 import { LANGS, Lang } from '../../i18n/translations';
-import { PROFILE } from '../profile';
+import { LINKEDIN, PROFILE } from '../profile';
 
 @Component({
   selector: 'app-site-header',
@@ -17,6 +17,7 @@ export class SiteHeader {
   protected readonly lang = this.language.lang;
   protected readonly langs = LANGS;
   protected readonly name = PROFILE.name;
+  protected readonly linkedin = LINKEDIN;
 
   protected onLangChange(event: Event): void {
     this.language.setLang((event.target as HTMLSelectElement).value as Lang);
