@@ -47,6 +47,23 @@ describe('Landing', () => {
     expect(compiled.querySelector('form')).toBeNull();
   });
 
+  it('should make the page behind inert only while the menu is open', async () => {
+    const fixture = await render();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const main = compiled.querySelector('main') as HTMLElement;
+    const menuButton = compiled.querySelector('button.menu-button') as HTMLButtonElement;
+    expect(main.inert).toBe(false);
+
+    menuButton.click();
+    await fixture.whenStable();
+    expect(main.inert).toBe(true);
+    expect(compiled.querySelector('app-site-header')?.closest('[inert]')).toBeNull();
+
+    menuButton.click();
+    await fixture.whenStable();
+    expect(main.inert).toBe(false);
+  });
+
   it('should load the constellation later, in a deferred block outside main', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     const fixture = await render();

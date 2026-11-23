@@ -55,6 +55,8 @@ Página principal de la web personal de Rodrigo Holme, que sustituye a la págin
 
 **Como** visitante **quiero** elegir entre inglés, español y portugués **para** leer la web en el idioma que mejor entiendo.
 
+> **Cambiado el 2026-11-23 por la [005-menu](../005-menu/spec.md) (HU-3):** cerrado, el selector muestra solo el código del idioma (EN, ES, PT). Las opciones y el funcionamiento son los mismos.
+
 **Criterios de aceptación:**
 
 - **Dado** que un visitante está en la página, **cuando** mira la parte superior, **entonces** ve un selector con tres idiomas: English, Español y Português (Brasil).
@@ -71,6 +73,8 @@ Página principal de la web personal de Rodrigo Holme, que sustituye a la págin
 - **Dado** que un visitante está en la página, **cuando** llega a la sección de fotos, **entonces** ve el mensaje "Coming soon" en el idioma activo.
 
 ### Criterios generales
+
+> **Cambiado el 2026-11-23 por la [005-menu](../005-menu/spec.md):** los enlaces a las secciones pasan de la cabecera a un menú a pantalla completa, que también incluye "Photos".
 
 - **Dado** que un visitante está en la página, **cuando** pulsa "About Me" o "Stack" en el menú superior, **entonces** la página se desplaza hasta esa sección (toda la web es una sola página).
 - **Dado** que un visitante abre la web en un móvil (desde 360 px de ancho), **cuando** la página carga, **entonces** todo el contenido se ve completo, sin scroll horizontal.

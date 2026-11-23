@@ -1,20 +1,26 @@
 export type Lang = 'en' | 'es' | 'pt-BR';
 
-/** Languages offered in the selector. Labels are always written in their own language. */
-export const LANGS: readonly { value: Lang; label: string }[] = [
-  { value: 'en', label: 'English' },
-  { value: 'es', label: 'Español' },
-  { value: 'pt-BR', label: 'Português (Brasil)' },
+/**
+ * Languages offered in the selector. Labels are always written in their own language.
+ * The code is what the closed selector shows: always two letters, so its width never changes.
+ */
+export const LANGS: readonly { value: Lang; label: string; code: string }[] = [
+  { value: 'en', label: 'English', code: 'EN' },
+  { value: 'es', label: 'Español', code: 'ES' },
+  { value: 'pt-BR', label: 'Português (Brasil)', code: 'PT' },
 ];
 
 export interface Translations {
   nav: {
     about: string;
     stack: string;
+    photos: string;
     contact: string;
     /** Accessible name of the contact button: starts with the visible text (WCAG 2.5.3). */
     contactLabel: string;
     languageLabel: string;
+    /** Accessible name of the menu button, open or closed: aria-expanded tells the state. */
+    menu: string;
   };
   role: string;
   about: {
@@ -31,9 +37,11 @@ const en: Translations = {
   nav: {
     about: 'About Me',
     stack: 'Stack',
+    photos: 'Photos',
     contact: 'Contact',
     contactLabel: 'Contact Rodrigo Holme on LinkedIn (opens in a new tab)',
     languageLabel: 'Language',
+    menu: 'Menu',
   },
   role: 'Developer',
   about: {
@@ -50,9 +58,11 @@ const es: Translations = {
   nav: {
     about: 'Sobre mí',
     stack: 'Stack',
+    photos: 'Fotos',
     contact: 'Contacto',
     contactLabel: 'Contacto: Rodrigo Holme en LinkedIn (se abre en una pestaña nueva)',
     languageLabel: 'Idioma',
+    menu: 'Menú',
   },
   role: 'Desarrollador',
   about: {
@@ -69,9 +79,11 @@ const ptBR: Translations = {
   nav: {
     about: 'Sobre mim',
     stack: 'Stack',
+    photos: 'Fotos',
     contact: 'Contato',
     contactLabel: 'Contato: Rodrigo Holme no LinkedIn (abre em uma nova aba)',
     languageLabel: 'Idioma',
+    menu: 'Menu',
   },
   role: 'Desenvolvedor',
   about: {

@@ -1,16 +1,11 @@
 <header>
-  <a class="wordmark" routerLink="/">
-    <img class="logo" src="logo-rh.svg" alt="" width="28" height="28" />
-    {{ name }}
+  <a class="home" routerLink="/" (click)="goToTop()">
+    <img class="logo" src="logo-rh.svg" [alt]="name" width="28" height="28" />
   </a>
-
-  <nav>
-    <a routerLink="/" fragment="about">{{ t().nav.about }}</a>
-    <a routerLink="/" fragment="stack">{{ t().nav.stack }}</a>
-  </nav>
 
   <div class="language">
     <label class="visually-hidden" for="language-select">{{ t().nav.languageLabel }}</label>
+    <span class="language-code" aria-hidden="true">{{ langCode() }}</span>
     <select id="language-select" (change)="onLangChange($event)">
       @for (option of langs; track option.value) {
         <option [value]="option.value" [lang]="option.value" [selected]="option.value === lang()">
@@ -28,5 +23,40 @@
     [attr.aria-label]="t().nav.contactLabel"
   >
     {{ t().nav.contact }}
+    <img class="contact-icon" [src]="linkedin.icon" alt="" width="16" height="16" />
   </a>
+
+  <button
+    #menuButton
+    type="button"
+    class="menu-button"
+    [attr.aria-label]="t().nav.menu"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="menuOpen.set(!menuOpen())"
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+      <path [attr.d]="menuOpen() ? 'M5 5l14 14M19 5L5 19' : 'M3 6h18M3 12h18M3 18h18'" />
+    </svg>
+  </button>
 </header>
+
+@if (menuOpen()) {
+  <nav
+    class="menu"
+    animate.enter="menu-enter"
+    animate.leave="menu-leave"
+    [attr.aria-label]="t().nav.menu"
+  >
+    <ul>
+      <li>
+        <a routerLink="/" fragment="about" (click)="closeMenu()">{{ t().nav.about }}</a>
+      </li>
+      <li>
+        <a routerLink="/" fragment="stack" (click)="closeMenu()">{{ t().nav.stack }}</a>
+      </li>
+      <li>
+        <a routerLink="/" fragment="photos" (click)="closeMenu()">{{ t().nav.photos }}</a>
+      </li>
+    </ul>
+  </nav>
+}

@@ -18,6 +18,7 @@ The site operates as a dark-stage environment where black voids meet a single vi
 | Electric Iris | `#8052ff` | `--color-electric-iris` | Primary action buttons, logo mark, brand accents — the single saturated violet that signals interactivity and brand identity against the black void |
 | Mint Signal | `#4fe3c1` | `--color-mint-signal` | Highlight emphasis text, accent links, attention punctuation — bright mint against violet creates the brand's chromatic tension |
 | Deep Verdant | `#15846e` | `--color-deep-verdant` | Secondary surface tint, logo gradient stop — appears as the deeper end of the brand gradient and in subtle accent washes |
+| Overlay | `rgb(0 0 0 / 60%)` | `--color-overlay` | Full-screen menu only: translucent black over the page, never blurred |
 
 ## Tokens — Typography
 
@@ -98,12 +99,12 @@ Background #8052ff (Electric Iris), white text, 22.5px border-radius (pill), 14.
 ### Ghost Text Button
 **Role:** Underlined or bare text link, secondary action
 
-No background, no border, color #ffffff or #9a9a9a. Inter 14px weight 400. Used for nav items and inline links. The absence of any container means visual hierarchy comes entirely from type weight and tracking.
+No background, no border, color #ffffff or #9a9a9a. Inter 14px weight 400. Used for inline links. The absence of any container means visual hierarchy comes entirely from type weight and tracking.
 
 ### Logo Lockup
-**Role:** Brand mark + wordmark in header
+**Role:** Brand mark in header
 
-The **RH monogram** (`public/logo-rh.svg`) at 28px, 12px to the left of the 'Rodrigo Holme' wordmark in white (14px Inter weight 600). Logo and wordmark are one link back to the top of the page; the logo is decorative (`alt=""`), so screen readers only hear "Rodrigo Holme".
+The **RH monogram** (`public/logo-rh.svg`) at 28px, with no wordmark next to it. It is a link back to the top of the page and its `alt` is "Rodrigo Holme", so screen readers still hear the name.
 
 **The mark:** R and H share the middle stem and the R's leg is the H's left foot, so the pair fits a square. Sharp, geometric strokes (stem ≈ 16% of the height); the R bowl has its top-right corner cut at 45° — the "angular fragment". Filled with a diagonal linear gradient from #8052ff (violet, top-left) to #15846e (teal, bottom-right). The H's top-right corner breaks off as a small #4fe3c1 mint triangle, echoing the bust bursting into particles on scroll. Always on pure black; no outline, shadow or container.
 
@@ -150,13 +151,18 @@ Two-column asymmetric layout: headline at 78–113px weight 400 Inter in white w
 ### Navigation Bar
 **Role:** Top-aligned site navigation
 
-Transparent background sitting directly on black canvas. Logo Lockup left (RH monogram + wordmark), nav links center/right (About Me, Stack) in 14px uppercase Inter with 0.025em tracking. Active or hover state: white. Inactive: #9a9a9a. Contact button (filled violet pill) anchors the right edge. No border, no backdrop blur on the nav itself.
+Transparent background sitting directly on black canvas. One row at every width, left to right: RH monogram, language selector, Contact button (filled violet pill) and menu button; everything but the logo is grouped on the right, 24px apart (12px on mobile). There are no section links in the bar: they live in the Full-Screen Menu. No border, no backdrop blur.
 
-**Contact button:** there is no contact section; the button opens Rodrigo's LinkedIn profile in a new tab. Its visible text is translated (Contact / Contacto / Contato) and its accessible name starts with that same word and says it opens LinkedIn in a new tab.
+**Contact button:** there is no contact section; the button opens Rodrigo's LinkedIn profile in a new tab. Its visible text is translated (Contact / Contacto / Contato), followed by the 16px LinkedIn logo in white, 6px to the right and decorative (`alt=""`). Its accessible name starts with that same word and says it opens LinkedIn in a new tab.
 
-**Language selector:** a native `<select>` placed between the nav links and the Contact button. Same look as the nav links: 14px uppercase Inter weight 600, 0.025em tracking, #9a9a9a text (white on hover/focus), transparent background, 1px #9a9a9a border, 24px radius, 6px 12px padding. Options are always written in their own language (English, Español, Português (Brasil)). Its label ("Language") is visually hidden but available to screen readers.
+**Language selector:** closed, a 64px-wide pill with only the language code (EN, ES, PT) and a small chevron: 14px Inter weight 600, 0.025em tracking, #9a9a9a (white on hover/focus), transparent background, 1px #9a9a9a border, 24px radius, 6px 12px padding. The width never changes with the language. On top of it sits a transparent native `<select>`, so the dropdown, the keyboard and the screen reader announcement are the system's. Options are always written in full in their own language (English, Español, Português (Brasil)). Its label ("Language") is visually hidden but available to screen readers.
 
-**Mobile (< 640px):** the bar wraps into two rows — logo, wordmark and language selector on top, nav links and Contact button below. No hamburger menu.
+**Menu button:** 24px icon of three 2px white lines, 44px to press, at the right edge. With the menu open it becomes an X in exactly the same place. Its accessible name ("Menu") never changes; `aria-expanded` tells the state.
+
+### Full-Screen Menu
+**Role:** Links to the sections (About Me, Stack, Photos)
+
+Covers 100% of the screen, behind the bar (which stays visible and usable) and in front of the page. Background: `--color-overlay`, no blur, so the constellation keeps moving in view; the page text behind also fades to 40% so it does not compete with the options. Options stacked on the left at the page edge, vertically centered, clamp(48px, 8vw, 78px) Inter weight 400 white with -0.04em tracking; mint on hover and focus. Closes with the X, Escape, the logo or by choosing an option. While open, the page behind does not scroll and is inert. 200ms fade in and out; none with `prefers-reduced-motion`.
 
 ### Stack List
 **Role:** Technologies Rodrigo works with
@@ -211,7 +217,7 @@ Imagery is entirely procedural and abstract — no photography except the About 
 
 ## Layout
 
-Full-bleed sections on pure black canvas, max content width ~1280px centered. Hero is a two-column asymmetric split: oversized left-aligned headline (113px) with body copy and CTA on the left half, 3D particle bust on the right half as a fixed full-page background behind the content. Subsequent sections alternate the two-column composition (visual-left/text-right, then text-left/visual-right) creating a zigzag reading rhythm. Section gaps are generous (60–120px vertical). No card grids, no pricing tables, no multi-column feature blocks — content lives in spacious two-column text+visual arrangements. Navigation is a minimal transparent top bar, no sidebar, no mega-menu. Density is extremely spacious — one or two elements per viewport, never information-dense.
+Full-bleed sections on pure black canvas, max content width ~1280px centered. Hero is a two-column asymmetric split: oversized left-aligned headline (113px) with body copy and CTA on the left half, 3D particle bust on the right half as a fixed full-page background behind the content. Subsequent sections alternate the two-column composition (visual-left/text-right, then text-left/visual-right) creating a zigzag reading rhythm. Section gaps are generous (60–120px vertical). No card grids, no pricing tables, no multi-column feature blocks — content lives in spacious two-column text+visual arrangements. Navigation is a minimal transparent top bar with a full-screen menu behind an icon, no sidebar, no mega-menu. Density is extremely spacious — one or two elements per viewport, never information-dense.
 
 ## Agent Prompt Guide
 
@@ -228,7 +234,7 @@ Full-bleed sections on pure black canvas, max content width ~1280px centered. He
 
 2. **Section Headline + Body**: #000000 background. Left-aligned headline at 42px Inter weight 400, #ffffff, letter-spacing -1.68px. Supporting body text at 18px weight 200 Inter, #bdbdbd, max-width 520px. No boxes, no borders, no cards — text floats on void.
 
-3. **Navigation Bar**: Transparent background on black. Left: 28px RH monogram (violet #8052ff → teal #15846e gradient, mint #4fe3c1 corner fragment) + 'Rodrigo Holme' wordmark in #ffffff 14px, 12px apart. Right: nav links 'About Me', 'Stack' in 14px Inter weight 600, uppercase, 0.025em letter-spacing, color #9a9a9a (inactive) or #ffffff (active). Far right: filled violet pill 'Contact' button that opens LinkedIn in a new tab — #8052ff background, white text, 22.5px radius, 14px weight 600 uppercase.
+3. **Navigation Bar**: Transparent background on black. Left: 28px RH monogram (violet #8052ff → teal #15846e gradient, mint #4fe3c1 corner fragment), no wordmark. Right, in this order: 64px language pill with the code ('EN') and a chevron in #9a9a9a, 1px #9a9a9a border; filled violet pill 'Contact' button with the white 16px LinkedIn logo after the text, opening LinkedIn in a new tab — #8052ff background, white text, 22.5px radius, 14px weight 600 uppercase; three-line menu icon in #ffffff that opens a full-screen translucent black menu with 'About Me', 'Stack' and 'Photos' in large white Inter weight 400.
 
 4. **About Me Card**: No background, no border. Large portrait photo with 24px border-radius. Above name: role label 'DEVELOPER' at 12px Inter weight 400, #8052ff, uppercase. Below photo: name 'Rodrigo Holme' at 27px Inter weight 400, #ffffff. Social icons inline as small glyphs in #9a9a9a.
 
@@ -255,6 +261,7 @@ Full-bleed sections on pure black canvas, max content width ~1280px centered. He
   --color-electric-iris: #8052ff;
   --color-mint-signal: #4fe3c1;
   --color-deep-verdant: #15846e;
+  --color-overlay: rgb(0 0 0 / 60%);
 
   /* Typography — Font Families */
   --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -340,6 +347,7 @@ Full-bleed sections on pure black canvas, max content width ~1280px centered. He
   --color-electric-iris: #8052ff;
   --color-mint-signal: #4fe3c1;
   --color-deep-verdant: #15846e;
+  --color-overlay: rgb(0 0 0 / 60%);
 
   /* Typography */
   --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

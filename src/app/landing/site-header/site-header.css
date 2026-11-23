@@ -6,10 +6,14 @@
   background: var(--color-void);
 }
 
+/* Lets the overlay of the menu cover the whole screen evenly, the bar included. */
+:host(.menu-open) {
+  background: transparent;
+}
+
 header {
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  grid-template-areas: 'wordmark nav language contact';
+  grid-template-columns: 1fr auto auto auto;
   align-items: center;
   gap: var(--spacing-24);
   max-width: var(--page-max-width);
@@ -19,82 +23,167 @@ header {
   box-sizing: border-box;
 }
 
-.wordmark {
-  grid-area: wordmark;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-12);
+.home {
   justify-self: start;
-  font-size: var(--text-nav-label);
-  font-weight: var(--font-weight-semibold);
-  text-decoration: none;
 }
 
 .logo {
   display: block;
   width: 28px;
   height: 28px;
-  flex-shrink: 0;
 }
 
-nav {
-  grid-area: nav;
+/* The native select is transparent and covers the language code, so the closed selector
+   stays narrow and keeps the system dropdown, the keyboard and its accessible name. */
+.language {
+  position: relative;
+  width: 64px;
+  border: 1px solid var(--color-ash-gray);
+  border-radius: var(--radius-buttons);
+  box-sizing: border-box;
+}
+
+.language:has(select:focus-visible) {
+  outline: 2px solid var(--color-electric-iris);
+  outline-offset: 3px;
+}
+
+.language-code {
   display: flex;
-  justify-content: flex-end;
-  gap: var(--spacing-24);
-}
-
-nav a,
-select {
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-6) var(--spacing-12);
   color: var(--color-ash-gray);
-  font: inherit;
   font-size: var(--text-nav-label);
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--tracking-nav-label);
-  text-transform: uppercase;
-  text-decoration: none;
 }
 
-nav a:hover,
-nav a:focus-visible,
-select:hover,
-select:focus-visible {
+.language:hover .language-code,
+.language:has(select:focus-visible) .language-code {
   color: var(--color-bone-white);
 }
 
-.language {
-  grid-area: language;
+.language-code::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  margin-top: -3px;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
 }
 
 select {
-  padding: var(--spacing-6) var(--spacing-12);
-  border: 1px solid var(--color-ash-gray);
-  border-radius: var(--radius-buttons);
-  background: transparent;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font: inherit;
+  font-size: var(--text-nav-label);
+  opacity: 0;
   cursor: pointer;
 }
 
 option {
   background: var(--color-void);
   color: var(--color-bone-white);
-  text-transform: none;
 }
 
 .contact {
-  grid-area: contact;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-6);
+}
+
+/* The icon file is gray for the black background; on the violet button it is white like the text. */
+.contact-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+/* 44px to press; the negative margin aligns the 24px icon with the page edge. */
+.menu-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-buttons);
+  background: transparent;
+  color: var(--color-bone-white);
+  cursor: pointer;
+}
+
+.menu-button path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Behind the bar (same stacking context) and in front of the page. */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--color-overlay);
+}
+
+.menu ul {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: auto;
+  padding: var(--header-height) var(--page-gutter);
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.menu a {
+  display: inline-block;
+  padding: var(--spacing-6) 0;
+  font-size: clamp(3rem, 8vw, 4.875rem);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  color: var(--color-mint-signal);
+}
+
+@keyframes menu-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :host {
+    transition: background-color 200ms ease-out;
+  }
+
+  .menu-enter {
+    animation: menu-fade 200ms ease-out;
+  }
+
+  .menu-leave {
+    animation: menu-fade 200ms ease-in reverse forwards;
+    pointer-events: none;
+  }
 }
 
 @media (max-width: 639px) {
   header {
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      'wordmark language'
-      'nav contact';
-    row-gap: var(--spacing-12);
-  }
-
-  nav {
-    justify-content: flex-start;
-    gap: var(--spacing-18);
+    gap: var(--spacing-12);
   }
 }

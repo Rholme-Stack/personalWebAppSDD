@@ -17,6 +17,7 @@
   --color-electric-iris: #8052ff;
   --color-mint-signal: #4fe3c1;
   --color-deep-verdant: #15846e;
+  --color-overlay: rgb(0 0 0 / 60%);
 
   /* Typography */
   --font-inter:
@@ -57,15 +58,20 @@
   --radius-buttons: 24px;
 }
 
-/* The header wraps into two rows on small screens (see site-header.css). */
-@media (max-width: 639px) {
-  :root {
-    --header-height: 112px;
-  }
+html {
+  /* Keeps everything in place when the scrollbar disappears with the menu open. */
+  scrollbar-gutter: stable;
 }
 
-html {
-  scroll-padding-top: var(--header-height);
+/* A link focused with the keyboard is never left under the header. It is not scroll-padding-top on
+   html because that also counts for the header itself: tabbing through it scrolled the page up. */
+main a {
+  scroll-margin-top: var(--header-height);
+}
+
+/* The page behind does not scroll while the menu is open. */
+html:has(app-site-header.menu-open) {
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {

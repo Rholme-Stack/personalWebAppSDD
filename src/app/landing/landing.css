@@ -1,3 +1,14 @@
+/* With the menu open the text fades more than the constellation, so the options read well on top. */
+main[inert] {
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  main {
+    transition: opacity 200ms ease-out;
+  }
+}
+
 .hero {
   display: flex;
   flex-direction: column;

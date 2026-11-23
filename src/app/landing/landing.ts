@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Constellation } from '../constellation/constellation';
 import { LanguageService } from '../i18n/language.service';
 import { AboutMe } from './about-me/about-me';
@@ -16,4 +16,5 @@ import { Stack } from './stack/stack';
 export class Landing {
   protected readonly t = inject(LanguageService).t;
   protected readonly name = PROFILE.name;
+  protected readonly menuOpen = signal(false);
 }

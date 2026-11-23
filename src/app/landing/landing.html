@@ -2,9 +2,9 @@
   <app-constellation />
 }
 
-<app-site-header />
+<app-site-header [(menuOpen)]="menuOpen" />
 
-<main>
+<main [inert]="menuOpen()">
   <section class="hero section">
     <h1>{{ name }}</h1>
     <p class="hero-role">{{ t().role }}</p>

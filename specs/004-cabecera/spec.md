@@ -20,6 +20,8 @@ Además, se quita la sección de contacto: su formulario todavía no enviaba men
 **Como** visitante **quiero** ver el logo de Rodrigo en la cabecera **para** identificar la web como su marca personal.
 
 > **Verificación del 2026-11-23:** los criterios 2 y 4 no se cumplen; los resuelve la [005-menu](../005-menu/spec.md) (HU-2). El detalle está en [tasks.md](./tasks.md) (T013).
+>
+> **Cambiado el 2026-11-23 por la 005 (HU-2):** el nombre ya no se ve junto al logo (criterios 1, 3 y 4); el lector de pantalla sigue diciendo "Rodrigo Holme".
 
 **Criterios de aceptación:**
 
@@ -41,6 +43,8 @@ Además, se quita la sección de contacto: su formulario todavía no enviaba men
 ### HU-3: Contactar con Rodrigo por LinkedIn
 
 **Como** visitante **quiero** un acceso directo para contactar con Rodrigo **para** escribirle sin pasar por un formulario que todavía no envía mensajes.
+
+> **Cambiado el 2026-11-23 por la [005-menu](../005-menu/spec.md) (HU-4):** el botón lleva además el logo de LinkedIn a la derecha del texto (criterio 3).
 
 **Criterios de aceptación:**
 
