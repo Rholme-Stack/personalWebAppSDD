@@ -21,7 +21,7 @@ Página principal de la web personal de Rodrigo Holme, que sustituye a la págin
 
 - **Dado** que un visitante entra en la web, **cuando** la página termina de cargar, **entonces** ve el nombre "Rodrigo Holme" y el rol traducido al idioma activo: "Developer" (inglés), "Desarrollador" (español) o "Desenvolvedor" (portugués).
 - **Dado** que un visitante está en la página, **cuando** llega a la sección "About Me", **entonces** ve una foto de Rodrigo, su nombre, su rol y un texto corto de presentación en el idioma activo.
-- **Dado** que la foto se muestra, **cuando** un lector de pantalla la anuncia, **entonces** tiene una descripción textual (por ejemplo, "Ilustración de Rodrigo Holme") en el idioma activo.
+- **Dado** que la foto se muestra, **cuando** un lector de pantalla la anuncia, **entonces** tiene una descripción textual (por ejemplo, "Foto de Rodrigo Holme") en el idioma activo.
 - **Dado** que un visitante está en la sección "About Me", **cuando** pulsa el icono de LinkedIn, GitHub o Instagram, **entonces** se abre el perfil correspondiente de Rodrigo en una pestaña nueva.
 - **Dado** que un visitante tiene la web abierta, **cuando** mira la pestaña del navegador, **entonces** ve el título "Rodrigo Holme".
 
@@ -106,10 +106,14 @@ Página principal de la web personal de Rodrigo Holme, que sustituye a la págin
 - **P:** ¿Qué ve el visitante al enviar un formulario válido? → **R:** Un aviso de que el formulario aún no está activo, con una invitación y un enlace a LinkedIn. Lo escrito no se borra.
 - **P:** ¿Cómo se describe la imagen para lectores de pantalla? → **R:** Es una ilustración, no una foto: "Ilustración de Rodrigo Holme" (traducido al idioma activo).
 
+### Sesión 2026-11-07
+
+- **P:** ¿Qué imagen aparece en About Me? → **R:** Una foto real de Rodrigo, en lugar de la ilustración. Se describe como "Foto de Rodrigo Holme" (traducido al idioma activo). Sustituye a la respuesta anterior sobre la ilustración.
+
 ### Contenido (no bloquea el plan; sí la publicación)
 
-- [x] Imagen de Rodrigo: ilustración entregada el 2026-10-31.
+- [x] Imagen de Rodrigo: foto entregada el 2026-11-22 (sustituye a la foto del 2026-11-07, que a su vez sustituyó a la ilustración del 2026-10-31).
 - [x] Texto de presentación en inglés, español y portugués de Brasil: ver `about.bio` en [data-model.md](./data-model.md).
 - [x] LinkedIn: https://www.linkedin.com/in/rodrigo-holme
 - [x] GitHub: https://github.com/Rholme-Stack
-- [ ] Instagram: falta la URL del perfil (la recibida, `https://www.instagram.com/p/CPoOGHKsu8z/`, es de una publicación, no del perfil).
+- [x] Instagram: https://www.instagram.com/holme9_/

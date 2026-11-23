@@ -38,9 +38,9 @@ describe('AboutMe', () => {
   });
 
   it.each<[Lang, string]>([
-    ['en', 'Illustration of Rodrigo Holme'],
-    ['es', 'Ilustración de Rodrigo Holme'],
-    ['pt-BR', 'Ilustração de Rodrigo Holme'],
+    ['en', 'Photo of Rodrigo Holme'],
+    ['es', 'Foto de Rodrigo Holme'],
+    ['pt-BR', 'Foto de Rodrigo Holme'],
   ])('should describe the picture in %s', async (lang, alt) => {
     const compiled = await render(lang);
     const img = compiled.querySelector('img.photo');

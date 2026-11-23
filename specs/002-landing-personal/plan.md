@@ -117,7 +117,7 @@ LanguageService (root) ──signal lang──> computed t ──> todos los com
 | Crear     | `src/app/contact/contact-form/contact-form.{ts,html,css,spec.ts}` | Formulario, validación y aviso. |
 | Crear     | `public/fonts/InterVariable.woff2`, `public/fonts/LICENSE.txt` | Fuente Inter variable (pesos 100–900) y su licencia OFL. |
 | Crear     | `public/icons/{dotnet,angular,sql,linkedin,github,instagram}.svg` | Logos. SQL usa un icono genérico de base de datos. |
-| Crear     | `public/images/rodrigo.webp` | Imagen de Rodrigo (ilustración apaisada 1792×1024; se recorta con `object-fit: cover`). |
+| Crear     | `public/images/rodrigo.webp` | Foto de Rodrigo, ya recortada en vertical 4:5 (560×700) como la tarjeta, sin metadatos. Sustituye a la ilustración inicial. |
 | Crear     | `docs/decisions/0002-i18n-servicio-propio-con-signals.md` | ADR del i18n. |
 | Modificar | `docs/decisions/README.md` | Añadir 0002 al índice. |
 | Modificar | `docs/design/DESIGN.md` | Añadir selector de idioma, campos de formulario, color de error y sección de fotos. La tipografía Inter ya está documentada. |

@@ -81,7 +81,7 @@ Todos los textos visibles, uno por idioma (HU-4). Los tres diccionarios implemen
 | `role` | Developer | Desarrollador | Desenvolvedor |
 | `about.title` | About Me | Sobre mí | Sobre mim |
 | `about.bio` | I'm a developer working with .NET, Angular and SQL. When I'm not coding, you'll find me doing sport: running and cycling are my thing. | Soy desarrollador y trabajo con .NET, Angular y SQL. Cuando no estoy programando, me encontrarás haciendo deporte: correr y montar en bici son lo mío. | Sou desenvolvedor e trabalho com .NET, Angular e SQL. Quando não estou programando, você vai me encontrar praticando esporte: corrida e ciclismo são a minha praia. |
-| `about.photoAlt` | Illustration of Rodrigo Holme | Ilustración de Rodrigo Holme | Ilustração de Rodrigo Holme |
+| `about.photoAlt` | Photo of Rodrigo Holme | Foto de Rodrigo Holme | Foto de Rodrigo Holme |
 | `about.socialLabel(label)` | Rodrigo Holme on {label} (opens in a new tab) | Rodrigo Holme en {label} (se abre en una pestaña nueva) | Rodrigo Holme no {label} (abre em uma nova aba) |
 | `stack.title` | Stack | Stack | Stack |
 | `photos.title` | Photos | Fotos | Fotos |

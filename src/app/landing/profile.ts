@@ -35,8 +35,7 @@ export const PROFILE: Profile = {
     {
       network: 'instagram',
       label: 'Instagram',
-      // TODO: replace with the Instagram profile URL (https://www.instagram.com/<user>/).
-      url: 'https://www.instagram.com/',
+      url: 'https://www.instagram.com/holme9_/',
       icon: 'icons/instagram.svg',
     },
   ],

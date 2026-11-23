@@ -114,7 +114,7 @@
 ## Fase 7: Verificación
 
 - [x] T028 Ejecutar `npm test` y `npm run build`: los dos en verde y sin avisos de presupuesto.
-- [ ] T029 Verificación manual con `npm start`:
+- [x] T029 Verificación manual con `npm start`:
   1. El aspecto coincide con `DESIGN.md`: fondo negro, Inter cargada, botón violeta y títulos grandes.
   2. About Me, Stack y Contact desplazan la página hasta su sección y la cabecera no tapa el título.
   3. Cambiar de idioma y recargar: se mantiene. Borrar `localStorage` con el navegador en español: arranca en español.
