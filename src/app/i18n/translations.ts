@@ -22,6 +22,9 @@ export interface Translations {
     /** Accessible name of the menu button, open or closed: aria-expanded tells the state. */
     menu: string;
   };
+  /** Typed in a loop on the hero. */
+  heroRole: string;
+  /** Label of the About Me card. */
   role: string;
   about: {
     title: string;
@@ -43,6 +46,7 @@ const en: Translations = {
     languageLabel: 'Language',
     menu: 'Menu',
   },
+  heroRole: 'Full-stack developer',
   role: 'Developer',
   about: {
     title: 'About Me',
@@ -64,6 +68,7 @@ const es: Translations = {
     languageLabel: 'Idioma',
     menu: 'Menú',
   },
+  heroRole: 'Desarrollador full stack',
   role: 'Desarrollador',
   about: {
     title: 'Sobre mí',
@@ -85,6 +90,7 @@ const ptBR: Translations = {
     languageLabel: 'Idioma',
     menu: 'Menu',
   },
+  heroRole: 'Programador full stack',
   role: 'Desenvolvedor',
   about: {
     title: 'Sobre mim',

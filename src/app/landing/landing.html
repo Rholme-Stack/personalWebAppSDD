@@ -7,7 +7,7 @@
 <main [inert]="menuOpen()">
   <section class="hero section">
     <h1>{{ name }}</h1>
-    <p class="hero-role">{{ t().role }}</p>
+    <p class="hero-role"><app-typed-role [text]="t().heroRole" /></p>
   </section>
 
   <app-about-me />

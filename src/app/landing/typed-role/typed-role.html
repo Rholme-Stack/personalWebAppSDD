@@ -1,0 +1,6 @@
+@if (reducedMotion()) {
+  {{ text() }}
+} @else {
+  <span class="visually-hidden">{{ text() }}</span>
+  <span aria-hidden="true">{{ visible() }}<span class="cursor" [class.blink]="idle()"></span></span>
+}

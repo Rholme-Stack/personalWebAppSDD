@@ -1,6 +1,8 @@
 import { DeferBlockBehavior, DeferBlockState, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { LanguageService } from '../i18n/language.service';
+import { Lang } from '../i18n/translations';
 import { Landing } from './landing';
 
 describe('Landing', () => {
@@ -18,18 +20,22 @@ describe('Landing', () => {
 
   afterEach(() => localStorage.clear());
 
-  it('should show the name as the main heading and the role', async () => {
+  it('should show the name as the main heading', async () => {
     const compiled = (await render()).nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent?.trim()).toBe('Rodrigo Holme');
-    expect(compiled.querySelector('.hero-role')?.textContent?.trim()).toBe('Developer');
   });
 
-  it('should translate the role when the language changes', async () => {
+  it.each<[Lang, string]>([
+    ['en', 'Full-stack developer'],
+    ['es', 'Desarrollador full stack'],
+    ['pt-BR', 'Programador full stack'],
+  ])('should show the role being typed in %s', async (lang, role) => {
     const fixture = await render();
-    TestBed.inject(LanguageService).setLang('pt-BR');
+    TestBed.inject(LanguageService).setLang(lang);
     await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.hero-role')?.textContent?.trim()).toBe('Desenvolvedor');
+    const typed = fixture.debugElement.query(By.css('.hero-role app-typed-role'));
+    expect(typed.componentInstance.text()).toBe(role);
+    expect(typed.nativeElement.querySelector('.visually-hidden').textContent).toBe(role);
   });
 
   it('should render the header and every section inside main', async () => {

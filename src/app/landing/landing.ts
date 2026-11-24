@@ -6,10 +6,11 @@ import { Photos } from './photos/photos';
 import { PROFILE } from './profile';
 import { SiteHeader } from './site-header/site-header';
 import { Stack } from './stack/stack';
+import { TypedRole } from './typed-role/typed-role';
 
 @Component({
   selector: 'app-landing',
-  imports: [Constellation, SiteHeader, AboutMe, Stack, Photos],
+  imports: [Constellation, SiteHeader, TypedRole, AboutMe, Stack, Photos],
   styleUrl: './landing.css',
   templateUrl: './landing.html',
 })

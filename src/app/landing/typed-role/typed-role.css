@@ -1,0 +1,19 @@
+/* Shorter than the line, so the line is always as tall, with letters or without them. */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.15em;
+  margin-left: 2px;
+  background: currentColor;
+  vertical-align: -0.2em;
+}
+
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

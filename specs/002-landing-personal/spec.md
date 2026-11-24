@@ -15,6 +15,8 @@ Página principal de la web personal de Rodrigo Holme, que sustituye a la págin
 
 ### HU-1: Saber quién es Rodrigo
 
+> **Cambiado el 2026-11-24 por la [006-rol-animado](../006-rol-animado/spec.md):** el rol de la portada (criterio 1) pasa a ser "Full-stack developer", "Desarrollador full stack" o "Programador full stack" y se escribe solo. El rol de "About Me" (criterio 2) no cambia.
+
 **Como** visitante **quiero** ver quién es Rodrigo y a qué se dedica **para** saber de quién es la web.
 
 **Criterios de aceptación:**

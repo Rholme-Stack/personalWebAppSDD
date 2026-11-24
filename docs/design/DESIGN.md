@@ -143,6 +143,11 @@ Thousands of tiny triangular glyphs in a full spectrum of vivid colors (violet, 
 
 **Reduced motion:** with `prefers-reduced-motion`, the bust is shown composed, still and facing front (no shimmer, no rotation) and simply fades out with the scroll instead of exploding. It is decorative: hidden from screen readers, never focusable, and it never catches clicks or text selection.
 
+### Hero Role
+**Role:** What Rodrigo does, typed under the name in the hero
+
+14px Inter weight 600, uppercase, 0.025em tracking, mint `#4fe3c1`, 24px below the name: "Full-stack developer" / "Desarrollador full stack" / "Programador full stack". It is typed in a loop as if a person were writing it: letter by letter with an irregular rhythm (70–190ms, a little longer before a new word), 3s complete, deleted letter by letter (45ms each), 700ms empty, and again. A 2px mint cursor follows the last letter: solid while typing or deleting, blinking (1s) while the text is still. The line keeps its height, so nothing around it moves. Changing the language starts again with the new text. Screen readers always get the whole text. With `prefers-reduced-motion`: whole text, still, no cursor. Only the hero role moves; the About Me role label is static.
+
 ### Section Headline Block
 **Role:** Oversized left-aligned headline + supporting copy
 
